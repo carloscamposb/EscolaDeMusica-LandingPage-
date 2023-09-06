@@ -1,4 +1,4 @@
-## PROJETO TOM'S JAZZ SCHOOL :music:
+## PROJETO TOM'S JAZZ SCHOOL 🎶
 -------------------------------------
 Projeto de estudo responsivo com Html e CSS disponibilizado pelo OneBitCode. 
 
