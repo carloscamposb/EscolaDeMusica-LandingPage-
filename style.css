@@ -1,0 +1,298 @@
+/*Normalização*/
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #ed4d1b;
+  --color-secundary: #ff9a3c;
+  --color-black: #000;
+  --color-white: #fff;
+}
+
+body {
+  background: linear-gradient(90deg, #ffe7d1 0%, #fff2e6 100%);
+  padding: 0 1rem; /*0 no eixo vertical e 1rem na horizontal*/
+}
+
+header,  /*definindo as linhas das seções*/
+.hero-section, 
+.courses-section, 
+footer {
+  border-color: var(--color-black);
+  border-style: solid;
+  border-width: 0 2px 2px 2px; /*porque ele não tem borda na parte superior*/
+  padding: 1.25rem;
+}
+
+header img {
+  display: block;
+  margin: 1rem auto; /*1 de margim para cima e para baixo e centralizada*/
+}
+
+header nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem auto 0;
+}
+
+nav a {
+  color: var(--color-black);
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+header nav a:nth-child(2n-1) {
+  /* 2n todos os elementos na posição par e 2n-1 pega os impares*/
+  text-align: right;
+}
+
+.button {
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-black);
+  box-shadow: 4px 4px 0 var(--color-black);
+  color: var(--color-black);
+  display: block;
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+  max-width: 14rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hero-section {
+  padding-right: 0;
+  padding-bottom: 16rem; /*bastante padding para a linha passar da imagem*/
+}
+
+.hero-section img {
+  display: block; /* ajustar margens*/
+  margin: 1.25rem 0 0 auto; /*um pouco mais de margem com 0 na direita 0 baixo e automatica para esquerda fazer com que ela seja empurrada para a direita onde tem 0 de margem*/
+  max-width: 100%; /*Não é a width fixa então não tera 100% da tela 
+                      mas no mobile ele não vai ta quebrando a imagem tamanho max limita ao tamanho da imagem a largura de seu conteneir*/
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 105%; /*Une um pouco as linhas do texto*/
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.hero-section .button {
+  position: relative; /*ele vai ser relative porque seu pseudo seletor (seta) vai ter uma posição absoluta*/
+}
+
+.hero-section .button::after {
+  /*Criação da seta*/
+  content: ""; /*conteúdo vazio*/
+  background: url(img/arrow-curve.svg);
+  position: absolute;
+  top: 5rem; /*Esses rem são para ajustar mais a imagem*/
+  right: -4rem;
+  height: 48px; /*px porque é um tamanho fixo*/
+  width: 132px;
+}
+
+.decoration {
+  /*quebrar a linha do titulo em 'impactante com adicão de três tracinhos'*/
+  display: block;
+  position: relative;
+}
+
+.decoration::after {
+  content: "";
+  background: url(img/three-dashes.svg);
+  position: absolute;
+  top: -0.75rem;
+  height: 36px;
+  width: 40px;
+}
+
+.courses-section {
+  padding-bottom: 8rem; /*add bastante espaço*/
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: start; /*alinhados à esquerda*/
+  gap: 1.25rem;
+  margin-top: -8rem; /*ele volta a invadir a div superior*/
+  margin-bottom: 4rem; /*separa do elemento abaixo (cards)*/
+}
+
+.card {
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-black);
+  box-shadow: 4px 4px 0 var(--color-black); /*4 para x e 4 y não tem blur então é 0*/
+  max-width: 17rem;
+  padding: 2rem 0 0 2rem; /*não tem nas pontas porque as setinhas precisam estar bem encostada*/
+}
+
+.card:nth-child(2n) {
+  /*só os cards pares*/
+  align-self: end;
+  background-color: var(--color-secundary);
+}
+
+.card strong {
+  display: block;
+  font-size: 1.5rem;
+  margin: 1rem 0; /*só no eixo vertical para dar mais espaçamento*/
+}
+
+.card a {
+  /*arrumando o link*/
+  display: block;
+  margin: 3rem 0 0 auto; /*margin só no topo e auto para empurrar para a direita*/
+  width: fit-content; /*para ele não pegar a largura completa pelo display block e alinhar a direita*/
+}
+
+footer {
+  border-bottom: 0; /*tinha uma bordinha no fim*/
+  padding: 1rem 1.25rem 4rem; /*1 para cima 1.25 laterais e 4 baixo*/
+}
+
+footer nav a {
+  /*links de navegação do rodapé*/
+  display: block; /*quebra a linha*/
+  padding-left: 0; /*para alinhar um pouco*/
+}
+
+.newsletter label {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.newsletter input {
+  border: 2px solid var(--color-black);
+  box-shadow: 4px 4px 0 var(--color-black);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/*Utilitários*/
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*responsividade*/
+@media screen and (min-width: 40rem) {
+/*40 rem= 640px*/
+
+  header nav {
+    display: block; /*tirando o grid ele fica em linha*/
+    text-align: center;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap; /*quebra os cards e joga para baixo*/
+    justify-content: center;
+  }
+
+  .card:nth-child(2n) {
+    margin: 1rem;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  header div {
+    /*teve que criar a div porque se não ia mexer nas linhas laterais, assim mexe só no contepudo interno*/
+    display: flex; /*itens alinhados*/
+    align-items: center; /*itens centralizados*/
+    justify-content: space-between; /*itens espaçados*/
+  }
+
+  /*arrumando um pouco melhor o alinhamento*/
+  header img,
+  header nav,
+  header .button {
+    margin: 0; /*zerando as margens, os elementos ficam mais certo*/
+  }
+}
+
+@media screen and (min-width: 72rem) {
+  /*já tamanho desktop*/
+
+  h1,h2{
+    font-size:  4rem; /*64 px*/
+  }
+
+  .container {
+    display: flex; /*aproxima texto e imagem na mesma linha*/
+    align-items: center;
+    margin: 0 auto;
+    max-width: 72rem; /*limita o conteudo a medida que a página cresce*/
+  }
+
+  .container .row-reverse {
+    /*inverte a ordem da imagem e do texto*/
+    flex-direction: row-reverse;
+  }
+
+  /*ocupar o espaço*/
+
+  .about-column {
+    flex: 2;
+  }
+
+  .about-column p{  /*para impedir que ele chegue muito perto da outra coluna ao lado*/
+    font-size: 1.25rem;
+    max-width: 16rem;
+  }
+
+  footer nav {
+    flex: 1;
+    
+  }
+    .newsletter {
+      flex: 3;
+    }
+}
+
+
+@media screen and (min-width: 80rem){
+.container{
+    max-width: 80rem; /*para não sobrar tanto na lateral*/
+}
+}
